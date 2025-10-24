@@ -1,3 +1,6 @@
 discord.py
 docker
 dotenv
+flask
+flask-cors
+gunicorn

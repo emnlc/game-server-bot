@@ -8,4 +8,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 ENV PYTHONUNBUFFERED=1
 
-CMD ["python", "bot.py"]
+EXPOSE 5000
+
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "main:application"]

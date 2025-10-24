@@ -2,3 +2,4 @@
 .env
 
 servers.json
+__pycache__/*

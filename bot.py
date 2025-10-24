@@ -199,5 +199,3 @@ async def delete_server(interaction: discord.Interaction, game: str):
     await interaction.response.send_message(f"**{game.upper()}** deleted from server list\n\n**Updated Server List**\n{res}", ephemeral=True)
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{len(GAME_MAP)} Servers"))
     save_servers()
-
-client.run(TOKEN)
