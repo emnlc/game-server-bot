@@ -22,6 +22,21 @@ CORS(app, origins=allowed_origins, methods=["GET"], allow_headers=["Content-Type
 docker_client = docker.from_env()
 SERVER_LIST = "servers.json"
 
+def get_container_status(container_name: str) -> str:
+    try:
+        container = docker_client.containers.get(container_name)
+        status = container.status
+        if status == "1":
+            return "online"
+        elif status == "2":
+            return "offline"
+        else:
+            return "unknown"
+    except docker.errors.NotFound:
+        return "not_found"
+    except Exception:
+        return "error"
+
 # READ servers.json
 def load_servers() -> Dict[str, str]:
     try:

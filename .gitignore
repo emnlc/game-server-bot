@@ -3,3 +3,5 @@
 
 servers.json
 __pycache__/*
+
+docker-compose.yml
